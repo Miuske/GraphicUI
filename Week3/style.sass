@@ -1,0 +1,116 @@
+$title-font: 'Princess Sofia', cursive;
+$white: #fff;
+$white24: #fff 24%;
+$grey86: #ddd 86%;
+$blue24: #5c95ff 24%;
+$blue86: #6caeff 86%;
+$dblue24: #4d7cf2 24%;
+$dblue86: #5c95ff 86%;
+
+@mixin gradient($color1, $color2){
+	background-image: linear-gradient(bottom, $color1, $color2);
+	background-image: -moz-linear-gradient(bottom, $color1, $color2);
+	background-image: -webkit-linear-gradient(bottom, $color1, $color2);
+}
+
+ @mixin border-radius($radius){
+    border-radius: $radius;
+    -moz-border-radius: $radius;
+    -webkit-border-radius: $radius;
+ }
+
+html {
+  @include gradient($white24, $grey86);
+  background-size: cover;
+	height: 100%;
+}
+
+body {
+	width: 50em;
+	margin: auto;
+	font-family: Verdana;
+	font-size: 12px;
+	height: 100%;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+}
+
+header {
+  background-color: #eeeeee;
+  @include border-radius(8px);
+  width: 640px;
+  border: 1px solid #000000;
+  margin-bottom: 4px;
+  padding: 8px;
+  h1 {
+    font-family: $title-font;
+    text-align: center;
+    font-size: 24px;
+  }
+}
+
+nav {
+  width: 640px;
+  clear: left;
+  float: left;
+  overflow: hidden;
+  ul {
+   height: 40px;
+    clear: left;
+    float: left;
+    position: relative;
+    left: 50%;
+    text-align: center;
+    li {
+      float: left;
+     position: relative;
+     right: 50%;
+      a {
+        @include border-radius(4px);
+        display: block;
+        line-height: 30px;
+        padding: 0 20px 0 20px;
+        margin: 0 4px 0 4px;
+        @include gradient($dblue24,$dblue86);
+        color: $white;
+        text-decoration: none;
+        border: 2px outset $white;
+       }
+      a:hover {
+        @include gradient($blue24,$blue86);
+      }
+    }
+  }
+}
+
+article {
+  @extend header;
+  float: left;
+  line-height: 140%;
+  img {
+    @include border-radius(4px);
+    float: right;
+    border: 2px solid #000;
+    margin-left: 8px;
+  }
+  h2 {
+   font-family: $title-font;
+   font-size: 21.6px;
+   line-height: 140%;
+  }
+  h3 {
+    font-family: $title-font;
+   font-size: 19.200000000000003px;
+   line-height: 140%;
+   margin-top: 8px;
+  }
+  p {
+   margin-bottom: 12px;
+  }
+}
+
+footer {
+  @extend header;
+  float: left;
+  text-align: center;
+}
